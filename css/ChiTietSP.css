@@ -1,0 +1,492 @@
+
+.content{
+	min-height: 1500px;
+	width: 100%;
+}
+
+#t {
+	width: 100%;
+	height: 20px;
+	background-color: #006633;
+}
+
+#t ul{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	float: right;
+	margin-right: 140px;
+}
+
+#t ul li{
+	float: left;
+	padding-right: 10px;
+}
+
+#t a{
+	color: white;
+	font-size: 12px;
+	text-decoration:none;
+}
+
+#header{
+	width:80%;
+	height: 90px; 
+	margin:auto;
+}
+
+#header::after{
+	content:"";
+	clear:both;
+	display:table;
+}
+
+#TK{
+	min-width:50%;
+	height:38px;
+	float:left;
+	margin-top:29px;
+	margin-left:30px;
+	background-color:white;
+	border-radius:20px;
+}
+
+.timkiem{
+	width: 100%;
+	height:38px;
+}
+
+.text{
+	width:80%;
+	height:26px;
+	margin-left:30px;
+	margin-top:6px;
+	border:0px;
+	float:left;
+}
+
+#gio{
+	width: 60px;
+	float:left;
+	margin-top:30px;
+	margin-left:30px;
+	background-color:white;
+	border-radius:10px;
+	text-align: center;
+	box-shadow: 0px 5px 10px #CCC;
+}
+
+.img-fly{
+	position: absolute;
+	z-index: 9999999;
+	width: 50px;
+	height: 50px;
+	background-color: orange;
+	border-radius: 100%;
+	object-fit: cover;
+	border: 2px solid red;
+	transition-duration: 1s;
+	animation: MyAnimation 1.5s;
+}
+
+#item{
+	font-size: 10px;
+	float: right;
+	padding-top: 5px;
+	padding-right: 8px;
+}
+
+#gio:hover{
+	width: 60px;
+	background: red;
+}
+
+.search{
+	margin-left:10px;
+	margin-top:4px;
+	border-radius:15px;
+	border:0px;
+	float:left;
+	background-color:white;
+}
+
+#header i{
+	padding-top:32px;
+	font-size:30px;
+	float:left;
+	color:#005500;
+}
+
+#header strong{
+	padding-top:25px;
+	padding-left:20px;
+	font-size:35px;
+	float:left;
+	color:#005500;
+	font-family:Calibri;
+}
+
+
+
+
+
+#dien-thoai img{
+	padding-top:8px;
+	padding-left:30px;
+}
+
+#dong-ho img{
+	padding-top:8px;
+	padding-left:20px;
+}
+
+#laptop img{
+	padding-top:8px;
+	padding-left:15px;
+}
+
+#tablet img{
+	padding-top:3px;
+	padding-left:10px;
+}
+
+#loa-tai-nghe img{
+	padding-top:8px;
+	padding-left:35px;
+}
+
+#phu-kien img{
+	padding-top:8px;
+	padding-left:20px;
+}
+
+#nha img{
+	padding-top:8px;
+	padding-left:35px;
+}
+
+#khuyen-mai img{
+	padding-top:8px;
+	padding-left:35px;
+}
+
+.img-detail {
+	width: 500px;
+	min-height: 400px;
+	float: left;
+}
+
+.img-detail_1 {
+	width: 502px;
+	height: 402px;
+	margin: auto;
+	margin-bottom: 15px;
+	border: 1px solid #CCC;
+}
+
+#img-main {
+	width: 500px;
+	height: 400px;
+}
+
+.img-detail_2 {
+	width: 380px;
+	height: 100px;
+}
+
+.a2{
+    width: 110px;
+    height: 103px;
+    margin-right:7px ;
+    float: left;
+    background-color: white;
+    border: 1px solid #CCC;
+}
+
+.a2 img{
+    width: 95px;
+    height: 100px;
+    margin-left: 7px;
+}
+
+.pro-id {
+	display: inline-block;
+	color: #fff;
+	background: #617585;
+	padding: 3px 15px;
+	margin-bottom: 10px;
+	font-weight: 400;
+	border-radius: 20px;
+	float: left;
+}
+
+.pro-id h2{
+	width: 100%;
+	height: 20px;
+	float: left;
+}
+
+#p2{
+    width: 100%;
+    min-height: 300px;
+    float: left;
+}
+
+#text{
+	width: 100%;
+	height:30px;
+}
+
+#text strong{
+    font-size: 25px;
+    color: red;
+	
+}
+
+#text i{
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.freeship{
+    width: 440px;
+    height: 170px;
+	/*border: 1px solid #000000 ;*/
+}
+
+.freeship span{
+    float: left;
+}
+
+.product-option{
+    width: 440px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.lable{
+    width: 440px;
+    height: 20px;
+    font-size: 15px;
+    float: left;
+}
+
+.option{
+    width: 90px;
+    float: left;
+    margin-top: 5px;
+    margin-right: 8px;
+    background-color: white;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+}
+
+.option strong{
+    color: red;
+    padding-top: 5px;
+}
+
+#TT{
+    width: 440px;
+    height: 40px;
+}
+
+.mua{
+    width: 370px;
+    height: 50px;
+    background-color: red;
+    text-align: center;
+    float: left;
+    margin-right: 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+#them_hang{
+    width: 60px;
+    height: 40px;
+    background-color: orange; 
+    float: left;
+    border-radius: 5px;
+}
+
+#them_hang img{
+    padding-left: 12px;
+    padding-top: 2px;
+}
+
+#p3{
+    width: 380px;
+    min-height: 300px;
+    float: left;
+    margin-left: 20px;
+}
+
+.lt-cua-hang{
+    width: 380px;
+    height: 40px;
+    background-color: rgb(179, 174, 174);
+    text-align: center;
+    padding-top: 10px;
+}
+
+.btn-sub {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #CCC;
+	background-color: #DDD;
+	font-size: 16px;
+	position: absolute;
+	top: 0px;
+	left: 10px;
+}
+
+.order-amount {
+	height: 60px;
+	width: 20%;
+	float: left;
+	position: relative;
+}
+
+.btn-plus {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #CCC;
+	background-color: #DDD;
+	font-size: 16px;
+	position: absolute;
+	top: 0px;
+	left: 94px;
+}
+.txt-amount {
+	width: 45px;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #CCC;
+	background-color: #FFF;
+	position: absolute;
+	top: 0px;
+	left: 50px;
+	text-align: center;
+}
+/*.txt {
+	float: left;
+	width: 450px;
+	height: 40px;
+	position: relative;
+	background-color: #FFF;*/
+	/*border-radius: 10px;*/
+/*}*/
+
+.list-cua-hang{
+    width: 380px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.lich-trinh-gt {
+	width: 100%;
+	min-height: 40px;
+	border-bottom: 3px solid black;
+	float: left;
+}
+
+.lich-trinh-gt-ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+.lich-trinh-gt-li {
+	float: left;
+	min-height: 38px;
+	padding-right: 15px;
+	padding-top: 13px;
+	padding-left: 15px;
+}
+
+.lich-trinh-gt-li a {
+	text-decoration: none;
+	font-size: 18px;
+}
+
+#lich-trinh-1 {
+	background-color: red;
+}
+
+.thong-tin-bh{
+    width: 380px;
+    min-height: 50px;
+    font-size: 15px;
+}
+
+#thong-tin{
+	max-width: 1215px;
+	min-height: 600px;
+	margin: auto;
+	float: left;
+}
+
+#thong-tin-sp{
+	width: 65%;
+	height: 500px;
+	float: left;
+	font-size: 15px;
+	overflow: scroll;
+	border-radius: 10px;
+	background-color: white;
+	box-shadow: 0px 5px 5px #CCC;
+	padding: 10px 10px 10px;
+}
+
+#chi-tiet-sp{
+	width: 33%;
+	min-height: 300px;
+	margin-left: 15px;
+	float: left;
+	border-radius: 10px;
+	background-color: white;
+	box-shadow: 0px 5px 5px #CCC;
+	
+}
+
+.anh-sp{
+	width: 255px;
+	height: 250px;
+	margin: auto;
+}
+
+.anh-sp img{
+	width: 255px;
+	height: 250px;
+}
+
+#chi-tiet-sp ol{
+	margin: 0px;
+	padding: 0px;
+}
+ 
+#chi-tiet-sp li{
+	list-style: none;
+	padding-bottom: 5px;
+	padding-left: 10px;
+}
+
+
+.TT{
+	margin-top:20px;
+}
+
+#sanpham::after{
+	content:"";
+	clear:both;
+	display:table;
+}
+
+
+
+
+/*Moi*/
+
