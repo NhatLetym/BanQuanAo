@@ -1,0 +1,74 @@
+﻿@model IEnumerable<ComputerObject.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="main">
+    <div>
+        <div class=head style="width: 100%;height: 55px; display: flex;">
+            <div ng-controller="SapXepController" class="d-flex justify-content-between align-items-center">
+                <div>
+                    Sorting Field Name
+                    <select ng-model="sortcolumn">
+                        <option value="productId" selected>Mã sản phẩm</option>
+                        <option value="productName">Tên sản phẩm</option>
+                    </select>
+                </div>
+                <div>
+                    <br />
+                    Sort direction
+                    <input type="button" style="color: black" class="btn btn-primary"
+                           ng-click="Chon(direct)" value="{{ direct }}">
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="row">
+        <section id="pro">
+            <div class="content" ng-controller="SanPhamLoaiController">
+                <div class="col-3 col-m-6 col-s-12 image" ng-repeat="s in ListSanPham|orderBy:sortcolumn:reverse">
+                    <div class="product">
+                        <div class="product-img">
+                            <img src='~/images/{{s.Anh}}' class="list-img" />
+                            <div class="btn-name">
+                                <input type='button' class='btn-buy' value='CHỌN MUA' ng-click="AddCart(s)" />
+                                <input ng-click="SelectSanPham(s.MaSP)" type="button" class="btn-view" value="CHI TIẾT" onclick="location='/ChiTietSP/Index'" />
+                            </div>
+                        </div>
+                        <a ng-click="SelectSanPham(s.MaSP)" href="/ChiTietSP/Index">
+                            @*/Home/DeTails*@
+                            <p style="height:20px">
+                                {{s.TenSP}}
+                                <img class='icon-hot' src="~/images/icon-hot.gif">
+                            </p>
+                        </a>
+                        <label class="price"><b>Giá bán: </b>{{s.GiaBan}}đ </label><br />
+                        @*<strike>14.560.000đ</strike><br /><br />*@
+
+                        <label class="mess"><b>Số lượng: </b>{{s.Soluong}}</label><br /><br />
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    @*<div class="list-product" ng-controller="SanPhamController">
+        <div class="col-3 col-m-6 col-s-12" ng-repeat="s in ListSanPham|orderBy:sortcolumn:reverse">
+            <div id='0' class="product">
+                <a ng-click="SelectSanPham(s.MaSP)" href="/ChiTietSP/Index">
+                    <img class="product-img" src="https://picsum.photos/200/300" />
+                </a>
+                <a href="#" class="product-name">{{s.TenSP}}</a>
+                <a href="#" class="price">{{s.GiaBan}}</a>
+                <input type='button' class='btn-buy' value='CHỌN MUA' ng-click="AddCart(s)" data-name="{{s.ProName}}" data-price="21000" />
+                <input type="button" class="btn-view" value="CHI TIẾT" onclick="location='./book.html'" />
+            </div>
+        </div>
+    </div>*@
+
+</div>
+

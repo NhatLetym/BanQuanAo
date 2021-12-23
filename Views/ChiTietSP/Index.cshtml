@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" ng-controller="DetailProduct">
+    <div class="col-md-6 col-sm-6 col-xl-12">
+        <div class="content">
+            <div class="col-md-6">
+                <div class="img-detail">
+                    <div class="img-detail_1">
+                        <img id="img-main" class="product-imgs" src="~/images/{{SanPham.Anh}}">
+                    </div>
+                    <div id="img-detail_2">
+                        <div class="a2" id="1" onclick="Border('1');" style="margin-left: 18px;border: 1px solid red;">
+                            <img id="a2-1" src="~/images/{{SanPham.Anh}}">
+                        </div>
+                        <div class="a2" id="2" onclick="Border('2');">
+                            <img id="a2-2" src="~/images/{{SanPham.AnhTo}}">
+                        </div>
+                        @*<div class="a2" id="3" onclick="Border('3');">
+                                <img id="a2-3" src="@Url.Content(Model.HinhAnh)">
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="p2">
+                    <div class="pro-id">
+                        <span class="title">Mã SP:</span>
+                        <span class="sku-number">{{SanPham.MaSP}}</span>
+                    </div><br /><br />
+                    <h2 style="margin-right: 30%;" class="product-name">{{SanPham.TenSP}}<br></h2>
+                    <p id="text" style="float: left">
+                        <strong class="product-price">{{SanPham.GiaBan}}đ</strong>
+                        <i>
+                            "Giá Niêm Yết: "
+                            <strike>9.999.000đ</strike>
+                        </i>
+                    </p>
+                    <p class="freeship">
+                        Là thương hiệu nội thất Top 3 tại Hàn Quốc - Dongsuh Furniture.
+                        Chuyên cung cấp những mẫu nội thất phòng ăn hiện đại, sofa giá rẻ,
+                        giường ngủ tinh tế, tủ kệ sang trọng với kiểu dáng,
+                        kích cỡ phù hợp thị hiếu, Dongsuh Furniture giúp thiết kế ngôi nhà mơ ước cho gia đình bạn.
+                    </p>
+                    @*<div class="product-option version">
+                            <strong class="lable">Lựa chọn kích cỡ</strong>
+                            <div class="option">
+                                <input type="radio" id="g1-1" name="g1" value="1" /><label for="g1-1">
+                                    2 ngăn
+                                </label>
+                            </div>
+
+                            <div class="option">
+                                <input type="radio" id="g1-2" name="g1" value="2" /><label for="g1-2">
+                                    3 ngăn
+                                </label>
+
+                            </div>
+
+                            <div class="option">
+                                <input type="radio" id="g1-3" name="g1" value="3" /><label for="g1-3">
+                                    4 ngăn
+                                </label>
+
+                            </div>
+                        </div>*@
+
+                    <div class="product-option version">
+                        <strong class="lable">Lựa chọn màu</strong>
+                        <div class="option">
+                            <input type="radio" id="g2-1" name="g2" value="1" /><label for="g2-1">
+                                Black
+                            </label>
+                        </div>
+
+                        <div class="option">
+                            <input type="radio" id="g2-2" name="g2" value="2" /><label for="g2-2">
+                                Blue
+                            </label>
+                        </div>
+                    </div>
+                    <div style='width: 100%; height: 80px;'>
+                        Số lượng
+                        <br /><br />
+                        <div class="order-amount">
+                            <input onclick='subAmount("txt2")' class="btn-sub" type="button" value="-" />
+                            <input id='txt2' class="txt-amount" type="text" value="1" />
+                            <input onclick='plusAmount("txt2")' class="btn-plus" type="button" value="+" />
+                        </div>
+                    </div>
+                    <div id="TT">
+                        <a href="/DatHang/Index" @*onclick="location='DatHang/Index'"*@ title="Mua ngay">
+                            <div class="mua">
+                                MUA NGAY<br />
+                                Trả tiền khi nhận hàng (COD)
+                            </div>
+                        </a>
+                        <a href="#" id="them_hang" ng-click="AddCart(SanPham)" role="button" title="Thêm vào giỏ hàng"
+                           data-name="{{SanPham.TenSP}}" data-price="{{SanPham.GiaBan}}"
+                           data-image="{{SanPham.MaLoai}}/{{SanPham.Anh}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="lich-trinh-gt">
+                <ul class="lich-trinh-gt-ul">
+                    <li class="lich-trinh-gt-li" id="lich-trinh-1" onclick="positons()"><a href="#positon"><span>MÔ TẢ</span></a></li>
+                    <li class="lich-trinh-gt-li" id="lich-trinh-2" onclick="photoinfos()"><a href="#photo-info"><span>THÔNG SỐ</span></a></li>
+                </ul>
+            </div>
+            <div id="thong-tin">
+                @*<div></div>*@
+                {{SanPham.Mota}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function positons() {
+        document.getElementById("positon").style.display = "block";
+        document.getElementById("photo-info").style.display = "none";
+        document.getElementById("lich-trinh-1").style.background = "red";
+        document.getElementById("lich-trinh-2").style.background = "white";
+        //document.getElementById("positon").style.height = "800px"
+    }
+
+    function photoinfos() {
+        document.getElementById("positon").style.display = "none";
+        document.getElementById("photo-info").style.display = "block";
+        document.getElementById("lich-trinh-2").style.background = "red";
+        document.getElementById("lich-trinh-1").style.background = "white";
+        //document.getElementById("photo-info").style.height = "1200px"
+    }
+</script>
+

@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="main">
+    <div class="infor-customer" ng-controller="DatHangController">
+        <div>Đặt Hàng</div>
+        <div>
+            <p>Tên Khách Hàng</p>
+            <input type="text" ng-model="KhachHang.TenKH" id="username">
+            <p>SDT</p>
+            <input type="text" ng-model="KhachHang.SDT" id="sdt">
+
+            <p>Địa chỉ</p>
+            <input type="text" ng-model="KhachHang.DiaChi" id="diachi">
+            <p>Email</p>
+            <input type="text" ng-model="KhachHang.Email" id="email">
+        </div>
+
+    </div>
+    <div class="row" ng-controller="CartController">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Tên Sản Phẩm</th>
+                    <th scope="col">Ảnh</th>
+                    <th scope="col">Số Lượng</th>
+                    <th scope="col">Đơn giá</th>
+                    <th scope="col">Thành Tiền</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="d in dsDonHang">
+                    <td>{{d.TenSP }}</td>
+                    <td>  <img src="~/Image/{{d.MaSP}}/{{d.Anh}}" /></td>
+                    <td>{{d.SoLuong }}</td>
+                    <td>{{d.GiaBan}}</td>
+                    <td>{{d.SoLuong*d.GiaBan}}</td>
+                    <th scope="col">
+                        <button ng-click="Delete(sp)"><i class="fas fa-trash-alt"></i></button>
+                    </th>
+
+                </tr>
+            </tbody>
+        </table>
+        <a type="button" class="btn btn-success" @*ng-click="CheckLogin()" data-toggle="modal" data-target="{{DangNhap}}"*@
+           href="/DatHang/Index">Đặt Hàng</a>
+    </div>
+
+</div>
+

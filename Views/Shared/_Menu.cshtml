@@ -1,0 +1,59 @@
+﻿
+
+<div class="menu">
+    <ul class="nav nav-tabs">
+        <!-- <img style="height: 70%; width: 10%; float: left; margin-bottom: 20px;" src="../WebsiteBanQuanAo/images/logo.png"></a> -->
+        <li class="nav-item" style="width: 10%;height: 50%">
+            <img style="height: 100%; width: 100%;" src="~/images/logo.jpg">
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">Trang chủ</a>
+        </li>
+        <li class="nav-item" ng-controller="MenuController">
+            <a class="nav-link" href="#">Sản phẩm</a>
+            <ul class="dropdown-menu">
+                <li ng-repeat="l in listLoai"><a class="dropdown-item" href="/SanPham/Index" ng-click="SelectLoai(l.MaLoai)">{{l.TenLoai}}</a></li>
+            </ul>
+        </li>
+
+        <!--<ul ng-controller="MenuController">-->
+        @*<li ng-repeat="l in listDongSP">*@
+        @*<a ng-click="SelectDongSP(l.MaDongSP)" href="/Home/Index.cshtml">{{l.MaDongSP}}</a></li>*@
+
+        <!--<li ng-repeat="l in listDongSP">
+            <a ng-click="SelectDongSP(l.MaDongSP)" href="/SanPham/TrangDiem">{{l.MaDongSP}}</a>
+        </li>-->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Thời trang</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Giới thiệu</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Tin tức</a>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Liên hệ</a>
+        </li>
+        <li>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </li>
+
+        <li class="nav-item dropdown">
+            <div class='cart-zone'>
+                <a @*href=''*@onclick="location='/GioHang/Index'">
+                    <svg style="color: dimgray" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                    </svg>
+                    <label class='cart-amount'>99+</label>
+                </a>
+            </div>
+        </li>
+    </ul>
+
+</div>

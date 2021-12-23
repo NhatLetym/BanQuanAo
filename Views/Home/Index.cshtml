@@ -1,0 +1,112 @@
+﻿@*@model IEnumerable<ComputerWeb.Models.SanPham>*@
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@Html.Partial("_Slide")
+
+<div id="content" ng-app="CustomerApp">
+
+    <div class="row">
+        <div class=head style="width: 100%;height: 55px; display: flex;">
+            <div ng-controller="SapXepController" class="d-flex justify-content-between align-items-center">
+                <div class="col-md-4">
+                    Sorting Field Name
+                    <select ng-model="sortcolumn">
+                        <option value="MaSP" selected>Mã sản phẩm</option>
+                        <option value="TenSP">Tên sản phẩm</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+
+                    Sort direction
+                    <input type="button" style="color: black" class="btn btn-primary"
+                           value="{{direct}}" ng-click="Chon(direct)">
+                </div>
+
+                <div class="col-md-4">
+                    Product Name to Search:
+                    <input ng-model="searchName" placeholder="Product name" />
+                    <input type="button" class="btn btn-primary" value="Search"
+                           ng-click="GetSanPhams(s)" />
+                    @*@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+                    {
+                        <p>
+                            Tìm tên sản phẩm: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                            <input type="submit" value="Tìm kiếm" />
+                        </p>
+                    }*@
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="row">
+        <section id="pro">
+            <div class="content" ng-controller="SapXepController" @*ng-controller="SanPhamControllers"*@>
+                <div class="col-3 col-m-6 col-s-12 image" @*ng-repeat="s in lsp"*@
+                     dir-paginate="s in SanPham |orderBy:sortcolumn:reverse|itemsPerPage:pageSize"
+                     total-items="totalCount">
+                    <div class="product">
+                        <div class="product-img">
+                            <img src='~/images/{{s.Anh}}' class="list-img" />
+                            <div class="btn-name">
+                                <input type='button' class='btn-buy' value='CHỌN MUA' ng-click="AddCart(s)" />
+                                <input ng-click="SelectSanPham(s.MaSP)" type="button" class="btn-view" value="CHI TIẾT" onclick="location='/ChiTietSP/Index'" />
+                            </div>
+                        </div>
+                        <a ng-click="SelectSanPham(s.MaSP)" href="/ChiTietSP/Index">
+                            @*/Home/DeTails*@
+                            <p style="height:20px">
+                                {{s.TenSP}}
+                                <img class='icon-hot' src="~/images/icon-hot.gif">
+                            </p>
+                        </a>
+                        <label class="price"><b>Giá bán: </b>{{s.GiaBan}}đ </label><br />
+                        @*<strike>14.560.000đ</strike><br /><br />*@
+
+                        <label class="mess"><b>Số lượng: </b>{{s.Soluong}}</label><br /><br />
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-5">
+        </div>
+        <div col-sm-12 col-md-7>
+            <div class=" pagination sortPagiBar">
+                <dir-pagination-controls max-size="maxSize"
+                                         direction-links="true"
+                                         boundary-links="true"
+                                         on-page-change="GetSanPhams(newPageNumber)">
+                </dir-pagination-controls>
+            </div>
+        </div>
+        @*<div class="row">
+            <div class="col-sm-12 col-md-5">
+                <div class="dataTables_info" id="dataTables_info" role="status" aria-live="polite">
+                    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-7">
+                <section class="panel">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, CurrentFilter = ViewBag.CurrentFilter }))
+                </section>
+            </div>
+        </div>*@
+    </div>
+
+
+
+    <div style="clear: both"></div>
+</div>
+
+
