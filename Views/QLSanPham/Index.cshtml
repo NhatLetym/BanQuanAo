@@ -1,0 +1,202 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Quản lí sản phẩm</h1>
+        <button ng-click="Add()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#ProductModal">
+            Add new Product
+        </button>
+
+    </div>
+</div>
+
+<!-- Content Row -->
+<div class="row" ng-controller="ProductController">
+    <!--Hiển thị thông tin ds sản phẩm-->
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">MaSP</th>
+                <th scope="col">TenSP</th>
+                <th scope="col">MaLoai</th>
+                <th scope="col">DonVi</th>
+                <th scope="col">MoTa</th>
+                <th scope="col">Anh</th>
+                <th scope="col">AnhTo</th>
+                @*<th scope="col">Soluong</th>*@
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="sp in lsp">
+                <td scope="col">{{sp.MaSP}}</td>
+                <td scope="col">{{sp.TenSP}}</td>
+                <td scope="col">{{sp.Maloai}}</td>
+                <td scope="col">{{sp.DonVi}}</td>
+                <td scope="col">{{sp.Mota}}</td>
+                <td scope="col"><img style=" width:80px;height:80px" src="~/images/{{sp.Anh}}" /></td>
+                <td scope="col"><img style=" width:80px;height:80px" src="~/images/{{sp.AnhTo }}" /></td>
+                @*<th scope="col">{{SoLuong}}</th>*@
+                <th scope="col">
+                    <button ng-click="Delete(sp)"><i class="fas fa-trash-alt"></i></button>
+                    <button ng-click="Edit(sp)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editSPModal"><i class="fas fa-edit"></i></button>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@*!-- Modal Sửa sản phẩm -->*@
+<div class="modal fade" id="editSPModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Sửa sản phẩm</h5>
+                <button type="button" class="close" data-dismiss="modal"
+                        arialabel="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <table class="table table-bordered">
+
+                    <tbody>
+                        <tr>
+                            <td>Ma SP</td>
+                            <td><input ng-model="sp.MaSP" /></td>
+                        </tr>
+                        <tr>
+                            <td>Ten SP</td>
+                            <td><input ng-model="sp.TenSP" /></td>
+                        </tr>
+                        <tr>
+                            <td>Ma Loai</td>
+                            <td>
+                                <select ng-model="sp.MaLoai">
+                                    <option ng-repeat="l in listLoai"
+                                            value="{{l.MaLoai}}">
+                                        {{l.MaLoai}}
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Don Vi</td>
+                            <td><input ng-model="sp.DonVi" /></td>
+                        </tr>
+                        <tr>
+                            <td>Mo Ta</td>
+                            <td><input ng-model="sp.MoTa" /></td>
+                        </tr>
+                        <tr>
+                            <td>Anh</td>
+                            <td><input type="file" multiple="multiple" ngf-select="UploadFiles($files,'Anh')" /></td>
+                        </tr>
+                        <tr>
+                            <td>Anh To</td>
+                            <td><input type="file" id="imgAnhTo" ngf-select="UploadFiles($files,'AnhTo')" /></td>
+                        </tr>
+                        <tr>
+                            <td>Gia Ban</td>
+                            <td><input ng-model="sp.GiaBan" /></td>
+                        </tr>
+                        <tr>
+                            <td>So Luong</td>
+                            <td><input ng-model="sp.SoLuong" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" datadismiss="modal">Close</button>
+                <button ng-click="SaveEdit()" type="button" class="btn btn-primary"
+                        data-dismiss="modal">
+                    Update
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal thêm sp -->
+<div class="modal fade" id="ProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add New Product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" ng-controller="ProductController">
+                <table class="table table-bordered">
+
+                    <tbody>
+                        <tr>
+                            <td>Ma SP</td>
+                            <td><input ng-model="sp.MaSP" /></td>
+                        </tr>
+                        <tr>
+                            <td>Ten SP</td>
+                            <td><input ng-model="sp.TenSP" /></td>
+                        </tr>
+                        <tr>
+                            <td>Ma Loai</td>
+                            <td>
+                                <select ng-model="sp.MaLoai">
+                                    <option ng-repeat="l in listLoai"
+                                            value="{{l.MaLoai}}">
+                                        {{l.MaLoai}}
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>DonVi</td>
+                            <td><input ng-model="sp.DonVi" /></td>
+                        </tr>
+                        <tr>
+                            <td>Mo Ta</td>
+                            <td><input ng-model="sp.MoTa" /></td>
+                        </tr>
+                        <tr>
+                            <td>Anh</td>
+                            <td><input type="file" multiple="multiple" ngf-select="UploadFiles($files,'Anh')" /></td>
+                        </tr>
+                        <tr>
+                            <td>Anh To</td>
+                            <td><input type="file" id="imgAnhTo" ngf-select="UploadFiles($files,'AnhTo')" /></td>
+                        </tr>
+                        <tr>
+                            <td>Gia Ban</td>
+                            <td><input ng-model="sp.GiaBan" /></td>
+                        </tr>
+                        <tr>
+                            <td>So Luong</td>
+                            <td><input ng-model="sp.SoLuong" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button ng-click="SaveAdd()" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
